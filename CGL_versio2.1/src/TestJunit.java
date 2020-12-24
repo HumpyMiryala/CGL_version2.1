@@ -6,16 +6,17 @@ import org.junit.jupiter.api.Test;
 public class TestJunit{
 
 	@Test
-	public void createBoardtest1() {
-		conwayBoard a = new conwayBoard();
-		a.printboard(false);
-		a.createBoard(5);
+	public void createBoardtest() {
+		ConwayBoard a = new ConwayBoard(4,3,false);
+		int x[][] = {{0,2},{1,2},{2,1}};
+		a.createBoard(x);
+		String s = a.printboard(board);
 		System.out.println("--Test case one is passed-- ");
-		Assertions.assertSame("created conway board ", a.createBoard(5));
+		Assertions.assertSame(s,"..*.\n..*.\n.*..");
 		
 	}
 	@Test
-	public void generateboardtest2() {
+	public void generateboardtest() {
 		ConwaysGameOfLife c = new ConwaysGameOfLife();
 		c.nextGeneration(); 
 		System.out.println("--Test case two is passed-- ");
