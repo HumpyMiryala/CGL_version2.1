@@ -3,7 +3,7 @@
  * @author Humpy
  *
  */
-public class conwayBoard{
+public class ConwayBoard{
 	public void printboard(boolean b) {
 		
 	}
