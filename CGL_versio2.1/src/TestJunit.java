@@ -7,21 +7,28 @@ public class TestJunit{
 
 	@Test
 	public void createBoardtest() {
-		ConwayBoard a = new ConwayBoard(4,3,false);
+		ConwayBoard b = new ConwayBoard();
 		int x[][] = {{0,2},{1,2},{2,1}};
-		a.createBoard(x);
-		String s = a.printboard(board);
 		System.out.println("--Test case one is passed-- ");
-		Assertions.assertSame(s,"..*.\n..*.\n.*..");
+		Assertions.assertEquals(null,b.createBoard(-10));
 		
 	}
 	@Test
-	public void generateboardtest() {
-		ConwaysGameOfLife c = new ConwaysGameOfLife();
-		c.nextGeneration(); 
+	public void generateboardtest1() {
+		ConwaysGameOfLife c = new ConwaysGameOfLife(); 
 		System.out.println("--Test case two is passed-- ");
-		Assertions.assertSame("next generation board is created.", c.nextGeneration());
-		
-
- }
+		Assertions.assertEquals("..........\n...**.....\n...**.....\n..........\n..........\n..***.....\n..**......\n...**.....\n..........\n..........\n", ((ConwaysGameOfLife)c).nextGeneration(c.createBoard(10),1));
+	 }
+	@Test
+	public void generateboardtest2() {
+		ConwaysGameOfLife c = new ConwaysGameOfLife(); 
+		System.out.println("--Test case three is passed-- ");
+		Assertions.assertEquals("..........\n...**.....\n...**.....\n..........\n...**.....\n....*.....\n..*.**....\n...***....\n....**....\n..........\n", ((ConwaysGameOfLife)c).nextGeneration(c.createBoard(10),2));
+	 }
+	@Test
+	public void generateboardtest3() {
+		ConwaysGameOfLife c = new ConwaysGameOfLife(); 
+		System.out.println("--Test case four is passed-- ");
+		Assertions.assertEquals("it can't be performed.",((ConwaysGameOfLife)c).nextGeneration(c.createBoard(10), -3));
+}
 }
